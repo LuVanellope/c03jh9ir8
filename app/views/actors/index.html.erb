@@ -1,14 +1,30 @@
-<%@actors.each do |actor| %>
-  <p><%= actor.id %> 
-  <p><%= actor.image_url %></p>
-  <p><%= actor.name %></p>
-  <p><%= actor.bio %></p>
-  <p><%= actor.birth_date %></p>
-  <p><%= actor.birth_place %></p> 
+div class="container">
+  <% @actors.each do |actor| %>
+    <%= image_tag actor.image_url %>
+    <%= actor.name %>
+    <%= actor.bio %>
+    <%= actor.birth_date %>
+    <%= actor.birth_place %>
+    <% if actor.alive %>
+      <br>
+    <% else %>
+      <%= actor.death_date %>
+      <%= actor.death_place %>
+      <br>
+    <% end %>
+  <% end %>
+  <%= link_to 'Crear Actor', new_actor_path %>
+</div>
 
-  <%unless actor.alive %>
-     <p><%= actor.death_date %></p>
-     <p><%= actor.death_place %></p>
-  <%end%>  
-<%end%>
+
+
+
+
+
+
+
+
+
+
+
 

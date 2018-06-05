@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <%= form_for @actor do |f| %>
+    <%= render 'shared/errors', model: @actor %>
+    <h5 <strong>Ingreso de datos nuevo actor</strong></h5>
+    <p>Ingrese el url de la imagen <%= f.text_field :image_url %></p><br>
+    <p>Ingrese el nombre del actor <%= f.text_field :name %></p><br>
+    <p>Ingresar Biografia <%= f.text_area :bio %></p><br>
+    <p>Ingresar fecha de nacimiento <%= f.date_field :birth_date %></p><br>
+    <p>Ingresar Lugar de Nacimiento <%= f.text_field :birth_place %></p><br>
+    <p>Aun se encuentra con vida? <%= f.check_box :alive %></p><br>
+    <p>En caso de no estar con vida por favor indique fecha de Fallecimiento <%= f.date_field :death_date %></p><br>
+    <p>Por favor tambien indique el lugar <%= f.text_field :death_place %></p><br>
+    <%= f.submit "Send" %>
+    <% end %>
+</div>
+<%= link_to 'Back', :back %>
