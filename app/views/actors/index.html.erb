@@ -1,20 +1,49 @@
-div class="container">
-  <% @actors.each do |actor| %>
-    <%= image_tag actor.image_url %>
-    <%= actor.name %>
-    <%= actor.bio %>
-    <%= actor.birth_date %>
-    <%= actor.birth_place %>
-    <% if actor.alive %>
-      <br>
-    <% else %>
-      <%= actor.death_date %>
-      <%= actor.death_place %>
-      <br>
-    <% end %>
+<div class="container">
+  <h1>Actors & Actresses</h1>
+
+  <div>
+    <a href=<%= new_actor_path %> >Crear Actor</a>
+  </div>
+
+    <div class="row">
+  <% @actors.each do |f| %>
+    <div class="col-sm-6"">
+      <div class="card border-light mb-3">
+        <div class="card-body">
+          <%= image_tag f.image_url %>
+          <h5 class="card-title"><%= f.name %></h5>
+          <p class="card-text"><%= f.bio %></p>
+          <p class="card-text"><small class="text-muted">Fecha de nacimiento: <%= f.birth_date %></small></p>
+          <p class="card-text"><small class="text-muted">Lugar de nacimiento: <%= f.birth_place %></small></p>
+
+          <% unless f.alive? %>
+            <p class="card-text"><small class="text-muted">Fecha de fallecimiento: <%= f.death_date %></small></p>
+            <p class="card-text"><small class="text-muted">Lugar de fallecimiento: <%= f.death_place %></small></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
   <% end %>
-  <%= link_to 'Crear Actor', new_actor_path %>
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
