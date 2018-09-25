@@ -1,19 +1,31 @@
-<%= form_for @actor, url: actors_path, method: "post" do |actor|%>
-  <%= actor.text_field :name, placeholder: "Nombre" %><br>
-  <br>
-  <%= actor.text_field :image_url, placeholder: "Imagen" %><br>
-  <br>
-  <%= actor.text_field :bio, placeholder: "Biografia" %><br>
-  <br>
-  <label for="birth_date">Fecha de nacimiento</label>
-  <%= actor.date_field :birth_date, id: "birth_date"%><br>
-  <br>
-  <%= actor.text_field :birth_place, placeholder: "Lugar de nacimiento" %><br>
-  <br>
-  <label for="death_date">Fecha de fallecimiento</label>
-  <%= actor.date_field :death_date %><br>
-  <br>
-  <%= actor.text_field :death_place, placeholder: "Lugar de fallecimiento"%><br>
-  <br>
-  <%= actor.submit "Crear Actor"%>
-<% end %>
+<div class="form-group">
+  <%= form_for @actor do |actor|%>
+    <label for="name">Name</label>
+    <%= actor.text_field :name, placeholder: "Nombre" %><br>
+    <br>
+    <label for="image">Imagen</label>
+    <%= actor.text_field :image_url, placeholder: "Imagen" %><br>
+    <br>
+    <label for="biografia">Biografia </label>
+    <%= actor.text_field :bio, placeholder: "Biografia" %><br>
+    <br>
+    <label for="birth_date">Fecha de nacimiento</label>
+    <%= actor.date_field :birth_date, id: "birth_date"%><br>
+    <br>
+    <label for="birth_place">Lugar de nacimiento</label>
+    <%= actor.text_field :birth_place, placeholder: "Lugar de nacimiento" %><br>
+    <br>
+    <div class="form-group form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox">Sigue viv@ </label>
+    </div>
+    <br>
+    <label for="death_date">Fecha de fallecimiento</label>
+    <%= actor.date_field :death_date %><br>
+    <br>
+    <label for="death_place">Lugar de fallecimiento</label>
+    <%= actor.text_field :death_place, placeholder: "Lugar de fallecimiento"%><br>
+    <br>
+    <%= actor.submit "Crear Actor"%>
+  <% end %>
+</div>
